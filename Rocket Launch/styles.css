@@ -10,18 +10,26 @@ body{
     border:none;    
 }
 
-#butons{
+#buttons{
     background-color: white;
     opacity: .8;    
     border-width: 3px;
-    border-color: red;
-    border-style: outset;
+    border-color: black;    
     text-align: center;
     padding: 5px;
 }
 
+#nextLaunch{
+    text-align: center;
+}
+
+#countdown{
+    text-align: center;
+}
+
 h1{
     font: 2em sans-serif;
+    text-align: center;
 }
 
 #launches p{
