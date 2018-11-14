@@ -6,8 +6,7 @@ var countdown;
 var nextLaunchDate;
 
 window.onload = getLaunches(0);
-//getting the date 
-//var date = datestring.split(' ').slice(0,4).join(' ');
+
 
 function getLaunches(num){
     if(num==0){
@@ -28,32 +27,26 @@ function aFunction(){
         var launch = httpRequest.responseText;
         var jsLaunch = JSON.parse(launch);
         console.log(jsLaunch);
-        //console.log(jsLaunch.launches[0]);
-        //console.log(jsLaunch.launches[0].name);
+        
         
         nextLaunchDate = (jsLaunch.launches[0].net).split(' ').slice(0, 3).join(' ')        
         document.getElementById("nextLaunch").innerHTML = "<p><strong>Next Launch:</strong> " + nextLaunchDate + "</p>";
         document.getElementById("launches").innerHTML = ""; 
 
-        //next 5 launches
         for(i=0; i<jsLaunch.count; i++){
             net = jsLaunch.launches[i].net;
             name = jsLaunch.launches[i].name;
                 document.getElementById("launches").innerHTML += "<p><strong>" + net + ":</strong> " + name + "</p>";
         }        
 
-        //countdown        
-        // I totally looked this up on w3schools        
+             
         var launchTime; 
         var current, count; 
         var d, h, m, s;       
         countdown = setInterval(function(){   
             launchTime = (new Date(jsLaunch.launches[0].net)).getTime()               
             current = new Date().getTime()
-            count = launchTime - current
-            //console.log(launchTime);
-            //console.log(current);
-            //console.log(count);
+            count = launchTime - current            
             d = Math.floor(count / (1000 * 60 * 60 * 24));
             h = Math.floor((count % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             m = Math.floor((count % (1000 * 60 * 60)) / (1000 * 60));
